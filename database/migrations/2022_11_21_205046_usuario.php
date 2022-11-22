@@ -13,19 +13,23 @@ class Usuario extends Migration
      */
     public function up()
     {
-        /*schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('usuario', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_usuario');
             $table->string('apellido_usuario');
             $table->string('direccion_usuario');
             $table->string('telefono_usuario');
             $table->string('correo_usuario');
-            $table->string('password_usuario');
+            $table->string('contraseña_usuario');
             $table->integer('edad_usuario');
-            $table->unsignedInteger('id_rol');
-            $table->foreign('id_rol')->references('id')->on('roles');
+            $table->unsignedBigInteger('id_rol');
+            $table->foreign("id_rol")
+                ->references("id")
+                ->on("roles")
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
             $table->timestamps();
-        });*/
+        });
     }
 
     /**

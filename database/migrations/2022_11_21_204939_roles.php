@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Ventas extends Migration
+class Roles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class Ventas extends Migration
      */
     public function up()
     {
-        schema::create('ventas', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->integer('precio_venta');
-            $table->unsignedInteger('id_usuario');
-            $table->unsignedInteger('cod_producto');
-            $table->foreign('cod_producto')->references('id')->on('productos');
-            $table->foreign('id_usuario')->references('id')->on('usuarios');
+            $table->string('nombre_rol');
             $table->timestamps();
         });
     }

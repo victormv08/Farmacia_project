@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Roles extends Migration
+class Productos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class Roles extends Migration
      */
     public function up()
     {
-        schema::create('roles', function (Blueprint $table) {
+        Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_rol');
+            $table->string('nombre_producto');
+            $table->integer('cantidad_producto');
+            $table->integer('precio_producto');
+            $table->string('descripcion_producto');
             $table->timestamps();
         });
     }
