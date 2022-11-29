@@ -20,4 +20,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('productos', App\Http\Controllers\ProductoController::class)->middleware('auth');
+Route::resource('categoria', App\Http\Controllers\CategoriumController::class)->middleware('auth');
+Route::resource('categoriaPublica', App\Http\Controllers\CategoriumPublicaController::class);
+Route::resource('productoPublic', App\Http\Controllers\ProductoPublicaController::class);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

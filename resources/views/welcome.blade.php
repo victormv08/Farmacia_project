@@ -25,17 +25,13 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <li class="nav-item">
-                            <a href="{{ url('/home') }}" class="nav-link text-sm text-gray-700 underline">Home</a>
-                        </li>
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Inicio</a>
                     @else
-                        <li class="nav-item">
-                            <a href="{{ route('login') }}" class="nav-link text-sm text-gray-700 underline">Login</a>
-                        </li>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Ingresar</a>
+
                         @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                            </li>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registrate</a>
+
                         @endif
                     @endif
                 </div>
