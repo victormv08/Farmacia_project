@@ -19,7 +19,7 @@ class Ventas extends Migration
             $table->unsignedBigInteger('id_usuario');
             $table->foreign("id_usuario")
                 ->references("id")
-                ->on("usuario")
+                ->on("users")
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
             $table->unsignedBigInteger('id_producto');
