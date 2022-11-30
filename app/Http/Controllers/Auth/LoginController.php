@@ -42,12 +42,12 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect('/');
     }
 
     public function redirectPath(){
         if(Auth::user()->tipo_usuario == 2){
-            return '/productoPublic';
+            return '/';
         }else{
             return '/home';
         }

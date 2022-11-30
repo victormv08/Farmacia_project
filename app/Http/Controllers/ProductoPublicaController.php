@@ -12,7 +12,7 @@ class ProductoPublicaController extends Controller
     {
         $productosPublic = Producto::paginate();
 
-        return view('productoPublic.index', compact('productosPublic'))
+        return view('index',compact('productosPublic'))
             ->with('i', (request()->input('page', 1) - 1) * $productosPublic->perPage());
     }
    //Se desean mostrar los productos que tengan un mismo id_categoria
