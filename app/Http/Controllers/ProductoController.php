@@ -108,4 +108,11 @@ class ProductoController extends Controller
         return redirect()->route('productos.index')
             ->with('success', 'Producto deleted successfully');
     }
+
+    //Api
+    public function apiProductos()
+    {
+        $productos = Producto::all();
+        return response()->json($productos);
+    }
 }
