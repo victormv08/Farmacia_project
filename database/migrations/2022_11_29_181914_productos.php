@@ -18,6 +18,12 @@ class Productos extends Migration
             $table->string('nombre_producto');
             $table->integer('cantidad_producto');
             $table->integer('precio_producto');
+            $table->unsignedBigInteger('id_categoria');
+            $table->foreign("id_categoria")
+                ->references("id")
+                ->on("categoria")
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
             $table->string('descripcion_producto');
             $table->timestamps();
         });
