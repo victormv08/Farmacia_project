@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmacia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -71,24 +72,8 @@
             </div>
         </div>
     </nav>
+    <div class="container" id="grafica">
 
-    <!-- Mostrar cada uno de los productos mediante Cards de Bootstrap -->
-    <div class="container">
-        <div class="row">
-            @foreach ($productosPublic as $productosPublic)
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $productosPublic->nombre_producto }}</h5>
-                        <p class="card-text"><span>Cantidad: </span>{{ $productosPublic->cantidad_producto }}</p>
-                        <p class="card-text"><span>Precio: </span>{{ $productosPublic->precio_producto }}</p>
-                        <p class="card-text"><span>Categoria: </span>{{ $productosPublic->categorium->nombre_categoria }}</p>
-                        <p class="card-text"><span>Deipcion: </span>{{ $productosPublic->descripcion_producto }}</p>
-                    </div>scr
-                </div>
-            </div>
-            @endforeach
-        </div>
     </div>
-</body>
+    <script src="/js/consumirGraficaApi.js"></script>
+
