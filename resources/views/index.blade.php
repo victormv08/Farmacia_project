@@ -33,30 +33,61 @@
     </head>
     <body class="antialiased">
         <header>
-            <nav class="navbar navbar-expand-lg bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar
+            <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand" href="">Inicio
                         <img>
                     </a>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        
+                        @if (Auth::check())
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('productos.index') }}">{{ __('Productos') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('categoria.index') }}">{{ __('Categorias') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Nuevo Administrador') }}</a>
+                            </li>
+                        </ul>
+                            
+                        @endif
+                        
+                    </div>
+                    <div class="collapse navbar-collapse">
                         <ul class="navbar-nav ms-auto">
+                            <!-- Authentication Links -->
+                            @guest
                                 @if (Route::has('login'))
-                                        @auth
-                                            <li class="nav-item">
-                                                <a href="{{ url('/home') }}" class="nav-link text-sm text-gray-700 underline">Home</a>
-                                            </li>
-                                        @else
-                                            <li class="nav-item">
-                                                <a href="{{ route('login') }}" class="nav-link text-sm text-gray-700 underline">Login</a>
-                                            </li>
-                                            @if (Route::has('register'))
-                                                <li class="nav-item">
-                                                    <a href="{{ route('register') }}" class="nav-link ml-4 text-sm text-gray-700 underline">Register</a>
-                                                </li>
-                                            @endif
-                                        @endif
-                                    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
+                                    </li>
                                 @endif
+
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                                    </li>
+                                @endif
+                                @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}<span class="caret"> |</span> 
+                                            {{ __('Salir') }}
+                                        </a>
+                            
+
+                                    <div  aria-labelledby="navbarDropdown">
+                                        
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
                         </ul>
                     </div>
                 </div>
@@ -64,70 +95,89 @@
         </header>
         <main>
             <div class="container pt-3">
-                <div id="carouselIndicators" class="carousel slide" data-bs-ride="true">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="{{URL::asset('imagenes/carousel2.jpg')}}" class="d-block w-100" alt="Imagen1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{URL::asset('imagenes/carousel1.jpg')}}" class="d-block w-100" alt="Imagen2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{URL::asset('imagenes/carousel3.jpg')}}" class="d-block w-100" alt="Imagen3">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev justify-content-start" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next justify-content-end" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-            <div class="container text-center">
                 <div class="row">
-                <!-- Mostrar mensaje de bienvenida si se ha autenticado, si no, no mostrar nada-->
-                    @if (Auth::check())
-                        <h1>Bienvenido {{ Auth::user()->name }}</h1>
-                    @endif
+                    <div class="col-12">
+                        @if (Auth::check())
+                            <h1>Bienvenido {{ Auth::user()->name }}</h1>
+                        @endif
+                        <div id="carouselIndicators" class="carousel slide" data-bs-ride="true">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{URL::asset('imagenes/c3.jpg')}}" class="d-block w-100" alt="Imagen1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{URL::asset('imagenes/c2.png')}}" class="d-block w-100" alt="Imagen2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{URL::asset('imagenes/c1.jpg')}}" class="d-block w-100" alt="Imagen3">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev justify-content-start" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden" style="color:black;">Previous</span>
+                            </button>
+                            <button class="carousel-control-next justify-content-end" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+            </div>
+            </div>
+            <div class="container text-center mt-5">
+                <div class="">
+                    <h1>Categorías</h1>
+                </div>
+                <div class="row">
+                    <!-- Mostrar mensaje de bienvenida si se ha autenticado, si no, no mostrar nada-->
                     <div class="col">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 18rem; border-color:#FFA07A;">
                             <img src="https://www.bancopopular.com.co/popular/minisites/landing-cuponera-digital/img/salud-belleza.png" class="card-img-top" alt="Salud y Belleza">
                             <div class="card-body">
                                 <h5 class="card-title">Salud y Belleza</h5>
                                 <p class="card-text">Encuentra todo lo referente a la salud y la belleza.</p>
-                                <a href="{{ route('productoPublic.show', 11) }}" class="btn btn-primary">Ir a salud y belleza</a>
+                                <a href="{{ route('productoPublic.show', 11) }}" class="btn btn" style="background-color:#FFA07A;">Ir a salud y belleza</a>
                             </div>
                         </div>
                     </div>
                     <div class="col">        
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 18rem; border-color:#FFA07A;">
                             <img src="https://static.vecteezy.com/system/resources/previews/002/895/071/non_2x/brushing-teeth-rgb-color-icon-toothpaste-and-paste-in-bathroom-towel-for-personal-cleanliness-and-hygiene-isolated-illustration-everyday-bath-routine-simple-filled-line-drawing-vector.jpg" class="card-img-top" alt="Aseo Personal">
                             <div class="card-body">
                                 <h5 class="card-title">Aseo Personal</h5>
                                 <p class="card-text">Encuentra todo lo referente al Aseo Personal.</p>
-                                <a href="{{ route('productoPublic.show', 12) }}" class="btn btn-primary">Ir a Aseo Personal</a>
+                                <a href="{{ route('productoPublic.show', 12) }}" class="btn btn" style="background-color:#FFA07A;">Ir a Aseo Personal</a>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 18rem; border-color:#FFA07A;">
                             <img src="https://cdn-icons-png.flaticon.com/512/706/706200.png" class="card-img-top" alt="Medicamentos">
                             <div class="card-body">
                                 <h5 class="card-title">Medicamentos</h5>
                                 <p class="card-text">Encuentra todo lo referente a los Medicamentos</p>
-                                <a href="{{ route('productoPublic.show', 10) }}" class="btn btn-primary">Ir a Medicamentos</a>
+                                <a href="{{ route('productoPublic.show', 10) }}" class="btn btn" style="background-color:#FFA07A;">Ir a Medicamentos</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="container mt-5">
+            <div class="visually-hidden"> {{$count = 1;}}</div> @foreach ($productosPublic as $productosPublic) @break($count == 3)
+            <div class="card me-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$count++;}}. {{ $productosPublic->nombre_producto }}</h5>
+                        <p class="card-text"><span>Cantidad: </span>{{ $productosPublic->cantidad_producto }}</p>
+                        <p class="card-text"><span>Precio: </span>{{ $productosPublic->precio_producto }}</p>
+                        <p class="card-text"><span>Categoría: </span>{{ $productosPublic->categorium->nombre_categoria }}</p>
+                        <p class="card-text"><span>Descripción: </span>{{ $productosPublic->descripcion_producto }}</p>
+                    </div>
+                </div>
+            @endforeach
             </div>
         </main>
         <footer>

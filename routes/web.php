@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('index');
-});
+});*/
+Route::resource('/', App\Http\Controllers\ProductoPublicaController::class);
+
+
 
 Auth::routes();
 
