@@ -13,7 +13,8 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light shadow-sm border-bottom" style="border-color:#ABB2B9;" id="navbar">
             <div class="container">
-                <a class="navbar-brand" href="">Inicio
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    Inicio<!--{{ config('app.name', 'Farmacia Eleven') }}-->
                 </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     

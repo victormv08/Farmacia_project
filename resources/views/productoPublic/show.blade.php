@@ -79,15 +79,15 @@
     <div class="container">
         <div class="row">
             @foreach ($productosPublic as $productosPublic)
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem; border-color:#FFA07A;">
+            <div class="col-md-4 mt-3">
+                <div class="card p-3" style="width: 18rem; border-color:#FFA07A;">
                     <img src="https://cdn-icons-png.flaticon.com/512/1312/1312307.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $productosPublic->nombre_producto }}</h5>
                         <p class="card-text"><span>Cantidad: </span>{{ $productosPublic->cantidad_producto }}</p>
                         <p class="card-text"><span>Precio: </span>{{ $productosPublic->precio_producto }}</p>
                         <p class="card-text"><span>Categoria: </span>{{ $productosPublic->categorium->nombre_categoria }}</p>
-                        <p class="card-text"><span>Deipcion: </span>{{ $productosPublic->descripcion_producto }}</p>
+                        <p class="card-text"><span>Descripción: </span>{{ $productosPublic->descripcion_producto }}</p>
                     </div>
                 </div>
             </div>
