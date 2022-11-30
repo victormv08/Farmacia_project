@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" id="form_login">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Ingresar') }}</div>
+            <div class="card" style="border-color:#FFA07A;">
+                <div class="card-header" style="background-color:#FFA07A; color:white;">{{ __('Ingresar') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -53,7 +53,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-outline" style="border-color:#FFA07A; color:#FFA07A;">
                                     {{ __('Ingresar') }}
                                 </button>
 

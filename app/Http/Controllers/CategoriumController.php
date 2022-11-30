@@ -48,7 +48,7 @@ class CategoriumController extends Controller
         $categorium = Categorium::create($request->all());
 
         return redirect()->route('categoria.index')
-            ->with('success', 'Categorium created successfully.');
+            ->with('success', 'Categoría creada exitosamente.');
     }
 
     /**
@@ -91,7 +91,7 @@ class CategoriumController extends Controller
         $categorium->update($request->all());
 
         return redirect()->route('categoria.index')
-            ->with('success', 'Categorium updated successfully');
+            ->with('success', 'Categoría actualizada exitosamente');
     }
 
     /**
@@ -104,6 +104,6 @@ class CategoriumController extends Controller
         $categorium = Categorium::find($id)->delete();
 
         return redirect()->route('categoria.index')
-            ->with('success', 'Categorium deleted successfully');
+            ->with('success', 'Categoría eliminada exitosamente');
     }
 }

@@ -29,6 +29,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Crear</button>
+        <button type="submit" class="mt-3 btn btn-outline" style="border-color:#e57373; color:#e57373; background-color:white">Crear</button>
     </div>
 </div>
