@@ -25,6 +25,9 @@
                                 <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nuevo Producto') }}
                                 </a>
+                                <a href="{{ route('descarga-pdf') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  generar listado productos(PDF)
+                                </a>
                               </div>
                         </div>
                     </div>
@@ -33,6 +36,7 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+
 
                     <div class="card-body">
                         <div class="table-responsive">

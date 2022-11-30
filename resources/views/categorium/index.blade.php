@@ -20,6 +20,9 @@
                                 <a href="{{ route('categoria.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nueva Categoria') }}
                                 </a>
+                                <a href="{{ route('descarga-pdfcat') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  generar listado categorias(PDF)
+                                </a>
                               </div>
                         </div>
                     </div>
