@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorium;
 use Illuminate\Http\Request;
+//use Barryvdh\DomPDF\Facade as PDF;
+use PDF;
 
 /**
  * Class CategoriumController
@@ -105,5 +107,12 @@ class CategoriumController extends Controller
 
         return redirect()->route('categoria.index')
             ->with('success', 'Categoría eliminada exitosamente');
+    }
+
+    public function generar_pdfcat()
+    {
+        $categorium = Categorium::all();
+        $pdf = PDF::loadView('categorium.generar_pdfcat', compact('categorium'));
+        return $pdf->download('categoria.pdf');
     }
 }

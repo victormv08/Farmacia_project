@@ -21,6 +21,9 @@
                                     <a href="{{ route('categoria.create') }}" class="btn btn-outline btn-sm float-right" style="border-color:#5e35b1; color:#5e35b1; background-color:white;" data-placement="left">
                                     {{ __('Crear Nueva Categoria') }}
                                     </a>
+                                    <a href="{{ route('descarga-pdfcat') }}" class="btn btn-outline btn-sm float-right" style="border-color:#5e35b1; color:#5e35b1; background-color:white;" data-placement="left">
+                                        Generar listado categorias(PDF)
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +35,7 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-secondary table-hover">
+                                <table class="table table-striped  table-hover">
                                     <thead class="thead">
                                         <tr>
                                             <th>N°</th>

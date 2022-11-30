@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Categorium;
 use Illuminate\Http\Request;
+//use Barryvdh\DomPDF\Facade as PDF;
+use PDF;
 
 /**
  * Class ProductoController
@@ -114,5 +116,14 @@ class ProductoController extends Controller
     {
         $productos = Producto::all();
         return response()->json($productos);
+    }
+
+    public function generar_pdf()
+    {
+        //traer los productos que tenga un id_categoria = 10
+        $productos = Producto::where('id_categoria', 10)->get();
+        //$productos = Producto::where();
+        $pdf = PDF::loadView('producto.generar_pdf', compact('productos'));
+        return $pdf->download('productos.pdf');
     }
 }

@@ -28,6 +28,8 @@ Route::resource('categoria', App\Http\Controllers\CategoriumController::class)->
 Route::resource('categoriaPublica', App\Http\Controllers\CategoriumPublicaController::class);
 Route::resource('productoPublic', App\Http\Controllers\ProductoPublicaController::class);
 Route::view('/graficaApi', 'grafica')->name('grafica');
+Route::get('download-pdf', 'App\Http\Controllers\ProductoController@generar_pdf')->name('descarga-pdf')->middleware('auth');
+Route::get('download-pdfCat', 'App\Http\Controllers\CategoriumController@generar_pdfcat')->name('descarga-pdfcat')->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

@@ -80,8 +80,8 @@
         <div class="row">
             @foreach ($productosPublic as $productosPublic)
             <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
+                <div class="card" style="width: 18rem; border-color:#FFA07A;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1312/1312307.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $productosPublic->nombre_producto }}</h5>
                         <p class="card-text"><span>Cantidad: </span>{{ $productosPublic->cantidad_producto }}</p>
