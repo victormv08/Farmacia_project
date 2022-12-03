@@ -8,14 +8,15 @@
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="float-left">
+                <div class="card" style="border-color:#e57373">
+                    <div class="card-header" style="background-color:#e57373;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span class="card-title">Mostrar Producto</span>
+                            <div class="float-right">
+                                <a class="btn btn-outline" style="border-color:#e57373; color:#e57373; background-color:white;" href="{{ route('productos.index') }}"> Atrás</a>
+                            </div>
                         </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('productos.index') }}"> Atras</a>
-                        </div>
+                        
                     </div>
 
                     <div class="card-body">

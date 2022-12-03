@@ -8,7 +8,7 @@
         </div>
 
     </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Enviar</button>
+    <div class="box-footer mt-20">
+        <button type="submit" class="mt-3 btn btn-outline" style="border-color:#009688">Enviar</button>
     </div>
 </div>

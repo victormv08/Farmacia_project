@@ -19,18 +19,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('style/style.css')}}" rel="stylesheet" >
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg bg-light shadow-sm border-bottom" style="border-color:#ABB2B9;" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                    Inicio<!--{{ config('app.name', 'Farmacia Eleven') }}-->
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"> </span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
 
@@ -46,6 +44,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Nuevo Administrador') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('grafica')}}">{{ __('Gráfica') }}</a>
                         </li>
                     </ul>
                     @endif
@@ -67,15 +68,17 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}<span class="caret"> |</span> 
-                        
-                                        {{ __('Salir') }}
-                                    </a>
+                                <a id="navbarDropdown" href="{{ route('logout') }}" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}</a>
+                                    <ul class="dropdown-menu">
+                                        <li >
+                                            <a id="navbarDropdown" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item" v-pre> 
+                                                    {{ __('Salir') }}</a>
+                                        </li>
+                                    </ul>
                     
 
-                                <div  aria-labelledby="navbarDropdown">
-                                   
+                                <div  aria-labelledby="navbarDropdown">                                   
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

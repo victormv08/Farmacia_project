@@ -11,17 +11,19 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Crear Producto</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('productos.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
+                <div class="container">
+                    <div class="card card-default" style="border-color:#e57373">
+                        <div class="card-header" style="background-color:#e57373;">
+                            <span class="card-title">Crear Producto</span>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="{{ route('productos.store') }}"  role="form" enctype="multipart/form-data">
+                                @csrf
 
-                            @include('producto.form')
+                                @include('producto.form')
 
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

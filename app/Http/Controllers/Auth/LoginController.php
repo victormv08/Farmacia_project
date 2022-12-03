@@ -47,7 +47,7 @@ class LoginController extends Controller
 
     public function redirectPath(){
         if(Auth::user()->tipo_usuario == 2){
-            return '/';
+            return '/productoPublic';
         }else{
             return '/home';
         }

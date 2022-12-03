@@ -11,9 +11,9 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Producto</span>
+                <div class="card card-default" style="border-color:#e57373">
+                    <div class="card-header" style="background-color:#e57373;">
+                        <span class="card-title">Actualizar Producto</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('productos.update', $producto->id) }}"  role="form" enctype="multipart/form-data">

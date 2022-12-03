@@ -88,7 +88,7 @@
                         <p class="card-text"><span>Precio: </span>{{ $productosPublic->precio_producto }}</p>
                         <p class="card-text"><span>Categoria: </span>{{ $productosPublic->categorium->nombre_categoria }}</p>
                         <p class="card-text"><span>Deipcion: </span>{{ $productosPublic->descripcion_producto }}</p>
-                    </div>scr
+                    </div>
                 </div>
             </div>
             @endforeach
